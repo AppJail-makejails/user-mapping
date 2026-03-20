@@ -3,7 +3,7 @@ ARG pgid=1000
 
 OPTION start
 
-CMD pw groupmod -n noroot -g "${pgid}" && \
+CMD pw groupadd -n noroot -g "${pgid}" && \
     pw useradd -n noroot -d /noroot -u "${puid}" -g "${pgid}" && \
     mkdir -p /noroot && \
     chown noroot:noroot /noroot
